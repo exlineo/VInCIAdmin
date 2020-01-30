@@ -1,8 +1,6 @@
 {
-  "connection": "default",
-  "collectionName": "pages",
   "info": {
-    "name": "projet"
+    "name": "vinci"
   },
   "options": {
     "increments": true,
@@ -33,5 +31,7 @@
     "ordre": {
       "type": "integer"
     }
-  }
+  },
+  "connection": "default",
+  "collectionName": "vincis"
 }

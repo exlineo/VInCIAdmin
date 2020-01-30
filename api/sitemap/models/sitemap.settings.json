@@ -46,6 +46,12 @@
         "projets",
         "publications"
       ]
+    },
+    "medias": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
