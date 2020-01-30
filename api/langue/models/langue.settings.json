@@ -1,0 +1,19 @@
+{
+  "connection": "default",
+  "collectionName": "langues",
+  "info": {
+    "name": "langue"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    }
+  }
+}

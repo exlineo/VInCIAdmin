@@ -1,0 +1,22 @@
+{
+  "connection": "default",
+  "collectionName": "gts",
+  "info": {
+    "name": "gt"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "langue": {
+      "model": "langue"
+    }
+  }
+}

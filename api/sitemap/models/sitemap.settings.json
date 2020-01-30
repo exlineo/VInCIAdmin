@@ -1,0 +1,51 @@
+{
+  "connection": "default",
+  "collectionName": "sitemaps",
+  "info": {
+    "name": "menu"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "chemin": {
+      "type": "string"
+    },
+    "menu": {
+      "type": "enumeration",
+      "enum": [
+        "principal",
+        "pied"
+      ]
+    },
+    "icone": {
+      "type": "string"
+    },
+    "couleurGauche": {
+      "model": "couleur"
+    },
+    "couleurDroite": {
+      "model": "couleur"
+    },
+    "ordre": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "actions",
+        "actualites",
+        "contacts",
+        "divers",
+        "droits",
+        "partenaires",
+        "projets",
+        "publications"
+      ]
+    }
+  }
+}

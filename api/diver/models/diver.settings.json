@@ -1,0 +1,31 @@
+{
+  "connection": "default",
+  "collectionName": "divers",
+  "info": {
+    "name": "diver"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "contenu": {
+      "type": "richtext"
+    },
+    "langue": {
+      "model": "langue"
+    }
+  }
+}

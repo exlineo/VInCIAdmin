@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "partenaires",
+  "info": {
+    "name": "partenaire"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "pays": {
+      "type": "string"
+    },
+    "lien": {
+      "type": "string"
+    },
+    "coordonnees": {
+      "type": "string"
+    },
+    "contact": {
+      "model": "contact"
+    },
+    "langue": {
+      "model": "langue"
+    },
+    "gt": {
+      "collection": "gt"
+    },
+    "statut": {
+      "type": "enumeration",
+      "enum": [
+        "partenaire",
+        "associe"
+      ]
+    },
+    "acronyme": {
+      "type": "string"
+    }
+  }
+}

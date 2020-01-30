@@ -1,0 +1,37 @@
+{
+  "connection": "default",
+  "collectionName": "pages",
+  "info": {
+    "name": "projet"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "contenu": {
+      "type": "richtext"
+    },
+    "media": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "langue": {
+      "model": "langue"
+    },
+    "ordre": {
+      "type": "integer"
+    }
+  }
+}

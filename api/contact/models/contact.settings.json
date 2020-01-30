@@ -1,0 +1,43 @@
+{
+  "connection": "default",
+  "collectionName": "contacts",
+  "info": {
+    "name": "contact"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "organisation": {
+      "type": "string"
+    },
+    "contact": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "lien": {
+      "type": "string"
+    },
+    "infos": {
+      "type": "string"
+    },
+    "gt": {
+      "type": "string"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "langue": {
+      "model": "langue"
+    }
+  }
+}
