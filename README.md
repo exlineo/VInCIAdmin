@@ -1,3 +1,3 @@
-# Strapi application
+# Serveur Rest du projet VInCI
 
-A quick description of your strapi application
+Application Strapi pour gérer les contenus du site du projet VInCI
