@@ -1,0 +1,1054 @@
+type Action {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: UploadFile
+  langue: Langue
+  partenaires(sort: String, limit: Int, start: Int, where: JSON): [Partenaire]
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input ActionInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  partenaires: [ID]
+  langue: ID
+}
+
+type Actualite {
+  titre: String
+  alias: String
+  intro: String
+  media: UploadFile
+  lien: String
+  contenu: String
+  langue: Langue
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input ActualiteInput {
+  titre: String
+  alias: String
+  intro: String
+  media: ID
+  lien: String
+  contenu: String
+  langue: ID
+}
+
+type Categorie {
+  nom: String
+  alias: String
+  description: String
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input CategorieInput {
+  nom: String
+  alias: String
+  description: String
+}
+
+type Contact {
+  organisation: String
+  contact: String
+  email: String
+  telephone: String
+  lien: String
+  infos: String
+  gt: String
+  logo: UploadFile
+  langue: Langue
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input ContactInput {
+  organisation: String
+  contact: String
+  email: String
+  telephone: String
+  lien: String
+  infos: String
+  gt: String
+  logo: ID
+  langue: ID
+}
+
+type Couleur {
+  nom: String
+  code: String
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input CouleurInput {
+  nom: String
+  code: String
+}
+
+input createActionInput {
+  data: ActionInput
+}
+
+type createActionPayload {
+  action: Action
+}
+
+input createActualiteInput {
+  data: ActualiteInput
+}
+
+type createActualitePayload {
+  actualite: Actualite
+}
+
+input createCategorieInput {
+  data: CategorieInput
+}
+
+type createCategoriePayload {
+  categorie: Categorie
+}
+
+input createContactInput {
+  data: ContactInput
+}
+
+type createContactPayload {
+  contact: Contact
+}
+
+input createCouleurInput {
+  data: CouleurInput
+}
+
+type createCouleurPayload {
+  couleur: Couleur
+}
+
+input createDiverInput {
+  data: DiverInput
+}
+
+type createDiverPayload {
+  diver: Diver
+}
+
+input createGtInput {
+  data: GtInput
+}
+
+type createGtPayload {
+  gt: Gt
+}
+
+input createLangueInput {
+  data: LangueInput
+}
+
+type createLanguePayload {
+  langue: Langue
+}
+
+input createPageInput {
+  data: PageInput
+}
+
+type createPagePayload {
+  page: Page
+}
+
+input createPartenaireInput {
+  data: PartenaireInput
+}
+
+type createPartenairePayload {
+  partenaire: Partenaire
+}
+
+input createPublicationInput {
+  data: PublicationInput
+}
+
+type createPublicationPayload {
+  publication: Publication
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input createSitemapInput {
+  data: SitemapInput
+}
+
+type createSitemapPayload {
+  sitemap: Sitemap
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+input createVinciInput {
+  data: VinciInput
+}
+
+type createVinciPayload {
+  vinci: Vinci
+}
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format
+outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
+representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
+`date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO
+8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+input deleteActionInput {
+  where: InputID
+}
+
+type deleteActionPayload {
+  action: Action
+}
+
+input deleteActualiteInput {
+  where: InputID
+}
+
+type deleteActualitePayload {
+  actualite: Actualite
+}
+
+input deleteCategorieInput {
+  where: InputID
+}
+
+type deleteCategoriePayload {
+  categorie: Categorie
+}
+
+input deleteContactInput {
+  where: InputID
+}
+
+type deleteContactPayload {
+  contact: Contact
+}
+
+input deleteCouleurInput {
+  where: InputID
+}
+
+type deleteCouleurPayload {
+  couleur: Couleur
+}
+
+input deleteDiverInput {
+  where: InputID
+}
+
+type deleteDiverPayload {
+  diver: Diver
+}
+
+input deleteGtInput {
+  where: InputID
+}
+
+type deleteGtPayload {
+  gt: Gt
+}
+
+input deleteLangueInput {
+  where: InputID
+}
+
+type deleteLanguePayload {
+  langue: Langue
+}
+
+input deletePageInput {
+  where: InputID
+}
+
+type deletePagePayload {
+  page: Page
+}
+
+input deletePartenaireInput {
+  where: InputID
+}
+
+type deletePartenairePayload {
+  partenaire: Partenaire
+}
+
+input deletePublicationInput {
+  where: InputID
+}
+
+type deletePublicationPayload {
+  publication: Publication
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteSitemapInput {
+  where: InputID
+}
+
+type deleteSitemapPayload {
+  sitemap: Sitemap
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+input deleteVinciInput {
+  where: InputID
+}
+
+type deleteVinciPayload {
+  vinci: Vinci
+}
+
+type Diver {
+  titre: String
+  intro: String
+  media: UploadFile
+  contenu: String
+  langue: Langue
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input DiverInput {
+  titre: String
+  intro: String
+  media: ID
+  contenu: String
+  langue: ID
+}
+
+input editActionInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  partenaires: [ID]
+  langue: ID
+}
+
+input editActualiteInput {
+  titre: String
+  alias: String
+  intro: String
+  media: ID
+  lien: String
+  contenu: String
+  langue: ID
+}
+
+input editCategorieInput {
+  nom: String
+  alias: String
+  description: String
+}
+
+input editContactInput {
+  organisation: String
+  contact: String
+  email: String
+  telephone: String
+  lien: String
+  infos: String
+  gt: String
+  logo: ID
+  langue: ID
+}
+
+input editCouleurInput {
+  nom: String
+  code: String
+}
+
+input editDiverInput {
+  titre: String
+  intro: String
+  media: ID
+  contenu: String
+  langue: ID
+}
+
+input editFileInput {
+  name: String
+  hash: String
+  sha256: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+}
+
+input editGtInput {
+  nom: String
+  code: String
+  langue: ID
+}
+
+input editLangueInput {
+  nom: String
+  code: String
+}
+
+input editPageInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  langue: ID
+  ordre: Int
+}
+
+input editPartenaireInput {
+  nom: String
+  pays: String
+  lien: String
+  coordonnees: String
+  contact: ID
+  langue: ID
+  gt: [ID]
+  statut: ENUM_PARTENAIRE_STATUT
+  acronyme: String
+}
+
+input editPublicationInput {
+  titre: String
+  alias: String
+  description: String
+  lien: String
+  document: ID
+  langue: ID
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+input editSitemapInput {
+  titre: String
+  chemin: String
+  menu: ENUM_SITEMAP_MENU
+  icone: String
+  couleurGauche: ID
+  couleurDroite: ID
+  ordre: Int
+  type: ENUM_SITEMAP_TYPE
+  medias: [ID]
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+input editVinciInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  langue: ID
+  ordre: Int
+}
+
+enum ENUM_PARTENAIRE_STATUT {
+  partenaire
+  associe
+}
+
+enum ENUM_SITEMAP_MENU {
+  principal
+  pied
+}
+
+enum ENUM_SITEMAP_TYPE {
+  actions
+  actualites
+  contacts
+  divers
+  droits
+  partenaires
+  projets
+  publications
+}
+
+input FileInput {
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+}
+
+type Gt {
+  nom: String
+  code: String
+  langue: Langue
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input GtInput {
+  nom: String
+  code: String
+  langue: ID
+}
+
+input InputID {
+  id: ID!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type Langue {
+  nom: String
+  code: String
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input LangueInput {
+  nom: String
+  code: String
+}
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+
+type Mutation {
+  createAction(input: createActionInput): createActionPayload
+  updateAction(input: updateActionInput): updateActionPayload
+  deleteAction(input: deleteActionInput): deleteActionPayload
+  createActualite(input: createActualiteInput): createActualitePayload
+  updateActualite(input: updateActualiteInput): updateActualitePayload
+  deleteActualite(input: deleteActualiteInput): deleteActualitePayload
+  createCategorie(input: createCategorieInput): createCategoriePayload
+  updateCategorie(input: updateCategorieInput): updateCategoriePayload
+  deleteCategorie(input: deleteCategorieInput): deleteCategoriePayload
+  createContact(input: createContactInput): createContactPayload
+  updateContact(input: updateContactInput): updateContactPayload
+  deleteContact(input: deleteContactInput): deleteContactPayload
+  createCouleur(input: createCouleurInput): createCouleurPayload
+  updateCouleur(input: updateCouleurInput): updateCouleurPayload
+  deleteCouleur(input: deleteCouleurInput): deleteCouleurPayload
+  createDiver(input: createDiverInput): createDiverPayload
+  updateDiver(input: updateDiverInput): updateDiverPayload
+  deleteDiver(input: deleteDiverInput): deleteDiverPayload
+  createGt(input: createGtInput): createGtPayload
+  updateGt(input: updateGtInput): updateGtPayload
+  deleteGt(input: deleteGtInput): deleteGtPayload
+  createLangue(input: createLangueInput): createLanguePayload
+  updateLangue(input: updateLangueInput): updateLanguePayload
+  deleteLangue(input: deleteLangueInput): deleteLanguePayload
+  createPage(input: createPageInput): createPagePayload
+  updatePage(input: updatePageInput): updatePagePayload
+  deletePage(input: deletePageInput): deletePagePayload
+  createPartenaire(input: createPartenaireInput): createPartenairePayload
+  updatePartenaire(input: updatePartenaireInput): updatePartenairePayload
+  deletePartenaire(input: deletePartenaireInput): deletePartenairePayload
+  createPublication(input: createPublicationInput): createPublicationPayload
+  updatePublication(input: updatePublicationInput): updatePublicationPayload
+  deletePublication(input: deletePublicationInput): deletePublicationPayload
+  createSitemap(input: createSitemapInput): createSitemapPayload
+  updateSitemap(input: updateSitemapInput): updateSitemapPayload
+  deleteSitemap(input: deleteSitemapInput): deleteSitemapPayload
+  createVinci(input: createVinciInput): createVinciPayload
+  updateVinci(input: updateVinciInput): updateVinciPayload
+  deleteVinci(input: deleteVinciInput): deleteVinciPayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, field: String, source: String, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UserInput!): UsersPermissionsLoginPayload!
+}
+
+type Page {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: UploadFile
+  langue: Langue
+  ordre: Int
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input PageInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  langue: ID
+  ordre: Int
+}
+
+type Partenaire {
+  nom: String
+  pays: String
+  lien: String
+  coordonnees: String
+  contact: Contact
+  langue: Langue
+  statut: ENUM_PARTENAIRE_STATUT
+  acronyme: String
+  gt(sort: String, limit: Int, start: Int, where: JSON): [Gt]
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input PartenaireInput {
+  nom: String
+  pays: String
+  lien: String
+  coordonnees: String
+  contact: ID
+  langue: ID
+  gt: [ID]
+  statut: ENUM_PARTENAIRE_STATUT
+  acronyme: String
+}
+
+type Publication {
+  titre: String
+  alias: String
+  description: String
+  lien: String
+  document: UploadFile
+  langue: Langue
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input PublicationInput {
+  titre: String
+  alias: String
+  description: String
+  lien: String
+  document: ID
+  langue: ID
+}
+
+type Query {
+  action(id: ID!): Action
+  actions(sort: String, limit: Int, start: Int, where: JSON): [Action]
+  actualite(id: ID!): Actualite
+  actualites(sort: String, limit: Int, start: Int, where: JSON): [Actualite]
+  categorie(id: ID!): Categorie
+  categories(sort: String, limit: Int, start: Int, where: JSON): [Categorie]
+  contact(id: ID!): Contact
+  contacts(sort: String, limit: Int, start: Int, where: JSON): [Contact]
+  couleur(id: ID!): Couleur
+  couleurs(sort: String, limit: Int, start: Int, where: JSON): [Couleur]
+  diver(id: ID!): Diver
+  divers(sort: String, limit: Int, start: Int, where: JSON): [Diver]
+  gt(id: ID!): Gt
+  gts(sort: String, limit: Int, start: Int, where: JSON): [Gt]
+  langue(id: ID!): Langue
+  langues(sort: String, limit: Int, start: Int, where: JSON): [Langue]
+  page(id: ID!): Page
+  pages(sort: String, limit: Int, start: Int, where: JSON): [Page]
+  partenaire(id: ID!): Partenaire
+  partenaires(sort: String, limit: Int, start: Int, where: JSON): [Partenaire]
+  publication(id: ID!): Publication
+  publications(sort: String, limit: Int, start: Int, where: JSON): [Publication]
+  sitemap(id: ID!): Sitemap
+  sitemaps(sort: String, limit: Int, start: Int, where: JSON): [Sitemap]
+  vinci(id: ID!): Vinci
+  vincis(sort: String, limit: Int, start: Int, where: JSON): [Vinci]
+  files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  role(id: ID!): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  user(id: ID!): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  me: UsersPermissionsMe
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+type Sitemap {
+  titre: String
+  chemin: String
+  menu: ENUM_SITEMAP_MENU
+  icone: String
+  couleurGauche: Couleur
+  couleurDroite: Couleur
+  ordre: Int
+  type: ENUM_SITEMAP_TYPE
+  medias(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input SitemapInput {
+  titre: String
+  chemin: String
+  menu: ENUM_SITEMAP_MENU
+  icone: String
+  couleurGauche: ID
+  couleurDroite: ID
+  ordre: Int
+  type: ENUM_SITEMAP_TYPE
+  medias: [ID]
+}
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+input updateActionInput {
+  where: InputID
+  data: editActionInput
+}
+
+type updateActionPayload {
+  action: Action
+}
+
+input updateActualiteInput {
+  where: InputID
+  data: editActualiteInput
+}
+
+type updateActualitePayload {
+  actualite: Actualite
+}
+
+input updateCategorieInput {
+  where: InputID
+  data: editCategorieInput
+}
+
+type updateCategoriePayload {
+  categorie: Categorie
+}
+
+input updateContactInput {
+  where: InputID
+  data: editContactInput
+}
+
+type updateContactPayload {
+  contact: Contact
+}
+
+input updateCouleurInput {
+  where: InputID
+  data: editCouleurInput
+}
+
+type updateCouleurPayload {
+  couleur: Couleur
+}
+
+input updateDiverInput {
+  where: InputID
+  data: editDiverInput
+}
+
+type updateDiverPayload {
+  diver: Diver
+}
+
+input updateGtInput {
+  where: InputID
+  data: editGtInput
+}
+
+type updateGtPayload {
+  gt: Gt
+}
+
+input updateLangueInput {
+  where: InputID
+  data: editLangueInput
+}
+
+type updateLanguePayload {
+  langue: Langue
+}
+
+input updatePageInput {
+  where: InputID
+  data: editPageInput
+}
+
+type updatePagePayload {
+  page: Page
+}
+
+input updatePartenaireInput {
+  where: InputID
+  data: editPartenaireInput
+}
+
+type updatePartenairePayload {
+  partenaire: Partenaire
+}
+
+input updatePublicationInput {
+  where: InputID
+  data: editPublicationInput
+}
+
+type updatePublicationPayload {
+  publication: Publication
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateSitemapInput {
+  where: InputID
+  data: editSitemapInput
+}
+
+type updateSitemapPayload {
+  sitemap: Sitemap
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+input updateVinciInput {
+  where: InputID
+  data: editVinciInput
+}
+
+type updateVinciPayload {
+  vinci: Vinci
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UploadFile {
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String!
+  user: UsersPermissionsMe!
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+type UsersPermissionsPermission {
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+  id: ID!
+}
+
+type UsersPermissionsRole {
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  id: ID!
+}
+
+type UsersPermissionsUser {
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Vinci {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: UploadFile
+  langue: Langue
+  ordre: Int
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input VinciInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  langue: ID
+  ordre: Int
+}
