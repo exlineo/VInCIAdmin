@@ -1,0 +1,40 @@
+{
+  "info": {
+    "name": "Projet"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "contenu": {
+      "type": "richtext"
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "ordre": {
+      "type": "integer"
+    },
+    "langue": {
+      "model": "langue"
+    },
+    "partenaire": {
+      "model": "partenaire"
+    }
+  },
+  "connection": "default",
+  "collectionName": "projets"
+}

@@ -26,6 +26,9 @@
     },
     "langue": {
       "model": "langue"
+    },
+    "alias": {
+      "type": "string"
     }
   }
 }

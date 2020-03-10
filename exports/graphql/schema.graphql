@@ -1,3 +1,24 @@
+type Accueil {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: UploadFile
+  langue: Langue
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input AccueilInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  langue: ID
+}
+
 type Action {
   titre: String
   alias: String
@@ -99,6 +120,14 @@ input CouleurInput {
   code: String
 }
 
+input createAccueilInput {
+  data: AccueilInput
+}
+
+type createAccueilPayload {
+  accueil: Accueil
+}
+
 input createActionInput {
   data: ActionInput
 }
@@ -163,6 +192,14 @@ type createLanguePayload {
   langue: Langue
 }
 
+input createMotInput {
+  data: MotInput
+}
+
+type createMotPayload {
+  mot: Mot
+}
+
 input createPageInput {
   data: PageInput
 }
@@ -177,6 +214,14 @@ input createPartenaireInput {
 
 type createPartenairePayload {
   partenaire: Partenaire
+}
+
+input createProjetInput {
+  data: ProjetInput
+}
+
+type createProjetPayload {
+  projet: Projet
 }
 
 input createPublicationInput {
@@ -232,6 +277,14 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
 8601 standard for representation of dates and times using the Gregorian calendar.
 """
 scalar DateTime
+
+input deleteAccueilInput {
+  where: InputID
+}
+
+type deleteAccueilPayload {
+  accueil: Accueil
+}
 
 input deleteActionInput {
   where: InputID
@@ -297,6 +350,14 @@ type deleteLanguePayload {
   langue: Langue
 }
 
+input deleteMotInput {
+  where: InputID
+}
+
+type deleteMotPayload {
+  mot: Mot
+}
+
 input deletePageInput {
   where: InputID
 }
@@ -311,6 +372,14 @@ input deletePartenaireInput {
 
 type deletePartenairePayload {
   partenaire: Partenaire
+}
+
+input deleteProjetInput {
+  where: InputID
+}
+
+type deleteProjetPayload {
+  projet: Projet
 }
 
 input deletePublicationInput {
@@ -359,6 +428,7 @@ type Diver {
   media: UploadFile
   contenu: String
   langue: Langue
+  alias: String
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -369,6 +439,16 @@ input DiverInput {
   intro: String
   media: ID
   contenu: String
+  langue: ID
+  alias: String
+}
+
+input editAccueilInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
   langue: ID
 }
 
@@ -421,6 +501,7 @@ input editDiverInput {
   media: ID
   contenu: String
   langue: ID
+  alias: String
 }
 
 input editFileInput {
@@ -447,6 +528,14 @@ input editLangueInput {
   code: String
 }
 
+input editMotInput {
+  fr: String
+  es: String
+  pt: String
+  en: String
+  alias: String
+}
+
 input editPageInput {
   titre: String
   alias: String
@@ -467,6 +556,17 @@ input editPartenaireInput {
   gt: [ID]
   statut: ENUM_PARTENAIRE_STATUT
   acronyme: String
+}
+
+input editProjetInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  ordre: Int
+  langue: ID
+  partenaire: ID
 }
 
 input editPublicationInput {
@@ -593,9 +693,31 @@ input LangueInput {
 """The `Long` scalar type represents 52-bit integers"""
 scalar Long
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+
+type Mot {
+  fr: String
+  es: String
+  pt: String
+  en: String
+  alias: String
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input MotInput {
+  fr: String
+  es: String
+  pt: String
+  en: String
+  alias: String
+}
 
 type Mutation {
+  createAccueil(input: createAccueilInput): createAccueilPayload
+  updateAccueil(input: updateAccueilInput): updateAccueilPayload
+  deleteAccueil(input: deleteAccueilInput): deleteAccueilPayload
   createAction(input: createActionInput): createActionPayload
   updateAction(input: updateActionInput): updateActionPayload
   deleteAction(input: deleteActionInput): deleteActionPayload
@@ -620,12 +742,18 @@ type Mutation {
   createLangue(input: createLangueInput): createLanguePayload
   updateLangue(input: updateLangueInput): updateLanguePayload
   deleteLangue(input: deleteLangueInput): deleteLanguePayload
+  createMot(input: createMotInput): createMotPayload
+  updateMot(input: updateMotInput): updateMotPayload
+  deleteMot(input: deleteMotInput): deleteMotPayload
   createPage(input: createPageInput): createPagePayload
   updatePage(input: updatePageInput): updatePagePayload
   deletePage(input: deletePageInput): deletePagePayload
   createPartenaire(input: createPartenaireInput): createPartenairePayload
   updatePartenaire(input: updatePartenaireInput): updatePartenairePayload
   deletePartenaire(input: deletePartenaireInput): deletePartenairePayload
+  createProjet(input: createProjetInput): createProjetPayload
+  updateProjet(input: updateProjetInput): updateProjetPayload
+  deleteProjet(input: deleteProjetInput): deleteProjetPayload
   createPublication(input: createPublicationInput): createPublicationPayload
   updatePublication(input: updatePublicationInput): updatePublicationPayload
   deletePublication(input: deletePublicationInput): deletePublicationPayload
@@ -709,6 +837,31 @@ input PartenaireInput {
   acronyme: String
 }
 
+type Projet {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: UploadFile
+  ordre: Int
+  langue: Langue
+  partenaire: Partenaire
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input ProjetInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  media: ID
+  ordre: Int
+  langue: ID
+  partenaire: ID
+}
+
 type Publication {
   titre: String
   alias: String
@@ -731,6 +884,8 @@ input PublicationInput {
 }
 
 type Query {
+  accueil(id: ID!): Accueil
+  accueils(sort: String, limit: Int, start: Int, where: JSON): [Accueil]
   action(id: ID!): Action
   actions(sort: String, limit: Int, start: Int, where: JSON): [Action]
   actualite(id: ID!): Actualite
@@ -747,10 +902,14 @@ type Query {
   gts(sort: String, limit: Int, start: Int, where: JSON): [Gt]
   langue(id: ID!): Langue
   langues(sort: String, limit: Int, start: Int, where: JSON): [Langue]
+  mot(id: ID!): Mot
+  mots(sort: String, limit: Int, start: Int, where: JSON): [Mot]
   page(id: ID!): Page
   pages(sort: String, limit: Int, start: Int, where: JSON): [Page]
   partenaire(id: ID!): Partenaire
   partenaires(sort: String, limit: Int, start: Int, where: JSON): [Partenaire]
+  projet(id: ID!): Projet
+  projets(sort: String, limit: Int, start: Int, where: JSON): [Projet]
   publication(id: ID!): Publication
   publications(sort: String, limit: Int, start: Int, where: JSON): [Publication]
   sitemap(id: ID!): Sitemap
@@ -806,6 +965,15 @@ input SitemapInput {
 
 """A time string with format: HH:mm:ss.SSS"""
 scalar Time
+
+input updateAccueilInput {
+  where: InputID
+  data: editAccueilInput
+}
+
+type updateAccueilPayload {
+  accueil: Accueil
+}
 
 input updateActionInput {
   where: InputID
@@ -879,6 +1047,15 @@ type updateLanguePayload {
   langue: Langue
 }
 
+input updateMotInput {
+  where: InputID
+  data: editMotInput
+}
+
+type updateMotPayload {
+  mot: Mot
+}
+
 input updatePageInput {
   where: InputID
   data: editPageInput
@@ -895,6 +1072,15 @@ input updatePartenaireInput {
 
 type updatePartenairePayload {
   partenaire: Partenaire
+}
+
+input updateProjetInput {
+  where: InputID
+  data: editProjetInput
+}
+
+type updateProjetPayload {
+  projet: Projet
 }
 
 input updatePublicationInput {

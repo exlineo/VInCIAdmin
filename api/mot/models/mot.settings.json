@@ -1,0 +1,28 @@
+{
+  "connection": "default",
+  "collectionName": "mots",
+  "info": {
+    "name": "mot"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "fr": {
+      "type": "string"
+    },
+    "es": {
+      "type": "string"
+    },
+    "pt": {
+      "type": "string"
+    },
+    "en": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    }
+  }
+}

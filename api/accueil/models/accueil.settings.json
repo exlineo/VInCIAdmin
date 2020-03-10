@@ -1,0 +1,34 @@
+{
+  "info": {
+    "name": "accueil"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "contenu": {
+      "type": "richtext"
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "langue": {
+      "model": "langue"
+    }
+  },
+  "connection": "default",
+  "collectionName": "accueils"
+}
