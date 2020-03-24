@@ -52,6 +52,18 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "langue": {
+      "model": "langue"
+    },
+    "titre_pt": {
+      "type": "string"
+    },
+    "titre_es": {
+      "type": "string"
+    },
+    "titre_en": {
+      "type": "string"
     }
   }
 }

@@ -596,6 +596,10 @@ input editSitemapInput {
   ordre: Int
   type: ENUM_SITEMAP_TYPE
   medias: [ID]
+  langue: ID
+  titre_pt: String
+  titre_es: String
+  titre_en: String
 }
 
 input editUserInput {
@@ -945,6 +949,10 @@ type Sitemap {
   couleurDroite: Couleur
   ordre: Int
   type: ENUM_SITEMAP_TYPE
+  langue: Langue
+  titre_pt: String
+  titre_es: String
+  titre_en: String
   medias(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   id: ID!
   created_at: DateTime!
@@ -961,6 +969,10 @@ input SitemapInput {
   ordre: Int
   type: ENUM_SITEMAP_TYPE
   medias: [ID]
+  langue: ID
+  titre_pt: String
+  titre_es: String
+  titre_en: String
 }
 
 """A time string with format: HH:mm:ss.SSS"""

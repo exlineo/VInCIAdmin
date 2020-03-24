@@ -634,6 +634,31 @@
                 }
               }
             }
+          },
+          "langue": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nom": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "titre_pt": {
+            "type": "string"
+          },
+          "titre_es": {
+            "type": "string"
+          },
+          "titre_en": {
+            "type": "string"
           }
         }
       },
@@ -676,6 +701,18 @@
               "projets",
               "publications"
             ]
+          },
+          "langue": {
+            "type": "string"
+          },
+          "titre_pt": {
+            "type": "string"
+          },
+          "titre_es": {
+            "type": "string"
+          },
+          "titre_en": {
+            "type": "string"
           }
         }
       }
