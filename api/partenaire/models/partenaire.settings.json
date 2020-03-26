@@ -39,6 +39,9 @@
     },
     "acronyme": {
       "type": "string"
+    },
+    "infos": {
+      "type": "text"
     }
   }
 }

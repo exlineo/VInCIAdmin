@@ -522,7 +522,7 @@
           "id": {
             "type": "string"
           },
-          "titre": {
+          "titre_fr": {
             "type": "string"
           },
           "chemin": {
@@ -575,15 +575,11 @@
           },
           "type": {
             "type": "string",
+            "default": "commun",
             "enum": [
-              "actions",
-              "actualites",
-              "contacts",
+              "commun",
               "divers",
-              "droits",
-              "partenaires",
-              "projets",
-              "publications"
+              "vincis"
             ]
           },
           "medias": {
@@ -664,7 +660,7 @@
       },
       "NewSitemap": {
         "properties": {
-          "titre": {
+          "titre_fr": {
             "type": "string"
           },
           "chemin": {
@@ -691,15 +687,11 @@
           },
           "type": {
             "type": "string",
+            "default": "commun",
             "enum": [
-              "actions",
-              "actualites",
-              "contacts",
+              "commun",
               "divers",
-              "droits",
-              "partenaires",
-              "projets",
-              "publications"
+              "vincis"
             ]
           },
           "langue": {

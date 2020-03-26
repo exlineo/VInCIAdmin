@@ -614,6 +614,9 @@
               },
               "acronyme": {
                 "type": "string"
+              },
+              "infos": {
+                "type": "string"
               }
             }
           },

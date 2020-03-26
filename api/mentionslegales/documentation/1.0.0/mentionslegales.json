@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/partenaires": {
+    "/mentionslegales": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the mentionslegales's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve mentionslegales document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Partenaire"
+                    "$ref": "#/components/schemas/Mentionslegales"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Mentionslegales"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new mentionslegales record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve mentionslegales document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Partenaire"
+                  "$ref": "#/components/schemas/Mentionslegales"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Mentionslegales"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPartenaire"
+                "$ref": "#/components/schemas/NewMentionslegales"
               }
             }
           }
         }
       }
     },
-    "/partenaires/count": {
+    "/mentionslegales/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of mentionslegales documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve mentionslegales document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Mentionslegales"
         ],
         "parameters": []
       }
     },
-    "/partenaires/{id}": {
+    "/mentionslegales/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one mentionslegales record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve mentionslegales document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Partenaire"
+                  "$ref": "#/components/schemas/Mentionslegales"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Mentionslegales"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single mentionslegales record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve mentionslegales document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Partenaire"
+                  "$ref": "#/components/schemas/Mentionslegales"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Mentionslegales"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPartenaire"
+                "$ref": "#/components/schemas/NewMentionslegales"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single mentionslegales record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single mentionslegales based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Mentionslegales"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Partenaire": {
+      "Mentionslegales": {
         "required": [
           "id"
         ],
@@ -522,54 +522,17 @@
           "id": {
             "type": "string"
           },
-          "nom": {
+          "titre": {
             "type": "string"
           },
-          "pays": {
+          "alias": {
             "type": "string"
           },
-          "lien": {
+          "intro": {
             "type": "string"
           },
-          "coordonnees": {
+          "contenu": {
             "type": "string"
-          },
-          "contact": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "organisation": {
-                "type": "string"
-              },
-              "contact": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "telephone": {
-                "type": "string"
-              },
-              "lien": {
-                "type": "string"
-              },
-              "infos": {
-                "type": "string"
-              },
-              "gt": {
-                "type": "string"
-              },
-              "logo": {
-                "type": "string"
-              },
-              "langue": {
-                "type": "string"
-              }
-            }
           },
           "langue": {
             "required": [
@@ -586,75 +549,24 @@
                 "type": "string"
               }
             }
-          },
-          "gt": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nom": {
-                "type": "string"
-              },
-              "code": {
-                "type": "string"
-              },
-              "langue": {
-                "type": "string"
-              }
-            }
-          },
-          "statut": {
-            "type": "string",
-            "enum": [
-              "partenaire",
-              "associe"
-            ]
-          },
-          "acronyme": {
-            "type": "string"
-          },
-          "infos": {
-            "type": "string"
           }
         }
       },
-      "NewPartenaire": {
+      "NewMentionslegales": {
         "properties": {
-          "nom": {
+          "titre": {
             "type": "string"
           },
-          "pays": {
+          "alias": {
             "type": "string"
           },
-          "lien": {
+          "intro": {
             "type": "string"
           },
-          "coordonnees": {
-            "type": "string"
-          },
-          "contact": {
+          "contenu": {
             "type": "string"
           },
           "langue": {
-            "type": "string"
-          },
-          "gt": {
-            "type": "string"
-          },
-          "statut": {
-            "type": "string",
-            "enum": [
-              "partenaire",
-              "associe"
-            ]
-          },
-          "acronyme": {
-            "type": "string"
-          },
-          "infos": {
             "type": "string"
           }
         }
@@ -663,7 +575,7 @@
   },
   "tags": [
     {
-      "name": "Partenaire"
+      "name": "Mentionslegales"
     }
   ]
 }

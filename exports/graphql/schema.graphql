@@ -192,6 +192,14 @@ type createLanguePayload {
   langue: Langue
 }
 
+input createMentionslegaleInput {
+  data: MentionslegaleInput
+}
+
+type createMentionslegalePayload {
+  mentionslegale: Mentionslegales
+}
+
 input createMotInput {
   data: MotInput
 }
@@ -230,6 +238,14 @@ input createPublicationInput {
 
 type createPublicationPayload {
   publication: Publication
+}
+
+input createRgpdInput {
+  data: RgpdInput
+}
+
+type createRgpdPayload {
+  rgpd: Rgpd
 }
 
 input createRoleInput {
@@ -350,6 +366,14 @@ type deleteLanguePayload {
   langue: Langue
 }
 
+input deleteMentionslegaleInput {
+  where: InputID
+}
+
+type deleteMentionslegalePayload {
+  mentionslegale: Mentionslegales
+}
+
 input deleteMotInput {
   where: InputID
 }
@@ -388,6 +412,14 @@ input deletePublicationInput {
 
 type deletePublicationPayload {
   publication: Publication
+}
+
+input deleteRgpdInput {
+  where: InputID
+}
+
+type deleteRgpdPayload {
+  rgpd: Rgpd
 }
 
 input deleteRoleInput {
@@ -528,6 +560,14 @@ input editLangueInput {
   code: String
 }
 
+input editMentionslegaleInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  langue: ID
+}
+
 input editMotInput {
   fr: String
   es: String
@@ -556,6 +596,7 @@ input editPartenaireInput {
   gt: [ID]
   statut: ENUM_PARTENAIRE_STATUT
   acronyme: String
+  infos: String
 }
 
 input editProjetInput {
@@ -578,6 +619,14 @@ input editPublicationInput {
   langue: ID
 }
 
+input editRgpdInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  langue: ID
+}
+
 input editRoleInput {
   name: String
   description: String
@@ -587,7 +636,7 @@ input editRoleInput {
 }
 
 input editSitemapInput {
-  titre: String
+  titre_fr: String
   chemin: String
   menu: ENUM_SITEMAP_MENU
   icone: String
@@ -634,14 +683,9 @@ enum ENUM_SITEMAP_MENU {
 }
 
 enum ENUM_SITEMAP_TYPE {
-  actions
-  actualites
-  contacts
+  commun
   divers
-  droits
-  partenaires
-  projets
-  publications
+  vincis
 }
 
 input FileInput {
@@ -697,7 +741,26 @@ input LangueInput {
 """The `Long` scalar type represents 52-bit integers"""
 scalar Long
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+input MentionslegaleInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  langue: ID
+}
+
+type Mentionslegales {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  langue: Langue
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mentionslegales | createMentionslegalePayload | updateMentionslegalePayload | deleteMentionslegalePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Rgpd | createRgpdPayload | updateRgpdPayload | deleteRgpdPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mot {
   fr: String
@@ -746,6 +809,9 @@ type Mutation {
   createLangue(input: createLangueInput): createLanguePayload
   updateLangue(input: updateLangueInput): updateLanguePayload
   deleteLangue(input: deleteLangueInput): deleteLanguePayload
+  createMentionslegale(input: createMentionslegaleInput): createMentionslegalePayload
+  updateMentionslegale(input: updateMentionslegaleInput): updateMentionslegalePayload
+  deleteMentionslegale(input: deleteMentionslegaleInput): deleteMentionslegalePayload
   createMot(input: createMotInput): createMotPayload
   updateMot(input: updateMotInput): updateMotPayload
   deleteMot(input: deleteMotInput): deleteMotPayload
@@ -761,6 +827,9 @@ type Mutation {
   createPublication(input: createPublicationInput): createPublicationPayload
   updatePublication(input: updatePublicationInput): updatePublicationPayload
   deletePublication(input: deletePublicationInput): deletePublicationPayload
+  createRgpd(input: createRgpdInput): createRgpdPayload
+  updateRgpd(input: updateRgpdInput): updateRgpdPayload
+  deleteRgpd(input: deleteRgpdInput): deleteRgpdPayload
   createSitemap(input: createSitemapInput): createSitemapPayload
   updateSitemap(input: updateSitemapInput): updateSitemapPayload
   deleteSitemap(input: deleteSitemapInput): deleteSitemapPayload
@@ -823,6 +892,7 @@ type Partenaire {
   langue: Langue
   statut: ENUM_PARTENAIRE_STATUT
   acronyme: String
+  infos: String
   gt(sort: String, limit: Int, start: Int, where: JSON): [Gt]
   id: ID!
   created_at: DateTime!
@@ -839,6 +909,7 @@ input PartenaireInput {
   gt: [ID]
   statut: ENUM_PARTENAIRE_STATUT
   acronyme: String
+  infos: String
 }
 
 type Projet {
@@ -906,6 +977,8 @@ type Query {
   gts(sort: String, limit: Int, start: Int, where: JSON): [Gt]
   langue(id: ID!): Langue
   langues(sort: String, limit: Int, start: Int, where: JSON): [Langue]
+  mentionslegale(id: ID!): Mentionslegales
+  mentionslegales(sort: String, limit: Int, start: Int, where: JSON): [Mentionslegales]
   mot(id: ID!): Mot
   mots(sort: String, limit: Int, start: Int, where: JSON): [Mot]
   page(id: ID!): Page
@@ -916,6 +989,8 @@ type Query {
   projets(sort: String, limit: Int, start: Int, where: JSON): [Projet]
   publication(id: ID!): Publication
   publications(sort: String, limit: Int, start: Int, where: JSON): [Publication]
+  rgpd(id: ID!): Rgpd
+  rgpds(sort: String, limit: Int, start: Int, where: JSON): [Rgpd]
   sitemap(id: ID!): Sitemap
   sitemaps(sort: String, limit: Int, start: Int, where: JSON): [Sitemap]
   vinci(id: ID!): Vinci
@@ -932,6 +1007,25 @@ type Query {
   me: UsersPermissionsMe
 }
 
+type Rgpd {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  langue: Langue
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input RgpdInput {
+  titre: String
+  alias: String
+  intro: String
+  contenu: String
+  langue: ID
+}
+
 input RoleInput {
   name: String!
   description: String
@@ -941,7 +1035,7 @@ input RoleInput {
 }
 
 type Sitemap {
-  titre: String
+  titre_fr: String
   chemin: String
   menu: ENUM_SITEMAP_MENU
   icone: String
@@ -960,7 +1054,7 @@ type Sitemap {
 }
 
 input SitemapInput {
-  titre: String
+  titre_fr: String
   chemin: String
   menu: ENUM_SITEMAP_MENU
   icone: String
@@ -1059,6 +1153,15 @@ type updateLanguePayload {
   langue: Langue
 }
 
+input updateMentionslegaleInput {
+  where: InputID
+  data: editMentionslegaleInput
+}
+
+type updateMentionslegalePayload {
+  mentionslegale: Mentionslegales
+}
+
 input updateMotInput {
   where: InputID
   data: editMotInput
@@ -1102,6 +1205,15 @@ input updatePublicationInput {
 
 type updatePublicationPayload {
   publication: Publication
+}
+
+input updateRgpdInput {
+  where: InputID
+  data: editRgpdInput
+}
+
+type updateRgpdPayload {
+  rgpd: Rgpd
 }
 
 input updateRoleInput {

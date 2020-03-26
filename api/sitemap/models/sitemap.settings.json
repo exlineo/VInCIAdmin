@@ -9,7 +9,7 @@
     "timestamps": true
   },
   "attributes": {
-    "titre": {
+    "titre_fr": {
       "type": "string"
     },
     "chemin": {
@@ -37,15 +37,11 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "actions",
-        "actualites",
-        "contacts",
+        "commun",
         "divers",
-        "droits",
-        "partenaires",
-        "projets",
-        "publications"
-      ]
+        "vincis"
+      ],
+      "default": "commun"
     },
     "medias": {
       "collection": "file",

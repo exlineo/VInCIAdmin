@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/partenaires": {
+    "/rgpds": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Partenaire"
+                    "$ref": "#/components/schemas/Rgpd"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Rgpd"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Partenaire"
+                  "$ref": "#/components/schemas/Rgpd"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Rgpd"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPartenaire"
+                "$ref": "#/components/schemas/NewRgpd"
               }
             }
           }
         }
       }
     },
-    "/partenaires/count": {
+    "/rgpds/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Rgpd"
         ],
         "parameters": []
       }
     },
-    "/partenaires/{id}": {
+    "/rgpds/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Partenaire"
+                  "$ref": "#/components/schemas/Rgpd"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Rgpd"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Partenaire"
+                  "$ref": "#/components/schemas/Rgpd"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Rgpd"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPartenaire"
+                "$ref": "#/components/schemas/NewRgpd"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Partenaire"
+          "Rgpd"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Partenaire": {
+      "Rgpd": {
         "required": [
           "id"
         ],
@@ -522,54 +522,17 @@
           "id": {
             "type": "string"
           },
-          "nom": {
+          "titre": {
             "type": "string"
           },
-          "pays": {
+          "alias": {
             "type": "string"
           },
-          "lien": {
+          "intro": {
             "type": "string"
           },
-          "coordonnees": {
+          "contenu": {
             "type": "string"
-          },
-          "contact": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "organisation": {
-                "type": "string"
-              },
-              "contact": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "telephone": {
-                "type": "string"
-              },
-              "lien": {
-                "type": "string"
-              },
-              "infos": {
-                "type": "string"
-              },
-              "gt": {
-                "type": "string"
-              },
-              "logo": {
-                "type": "string"
-              },
-              "langue": {
-                "type": "string"
-              }
-            }
           },
           "langue": {
             "required": [
@@ -586,75 +549,24 @@
                 "type": "string"
               }
             }
-          },
-          "gt": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nom": {
-                "type": "string"
-              },
-              "code": {
-                "type": "string"
-              },
-              "langue": {
-                "type": "string"
-              }
-            }
-          },
-          "statut": {
-            "type": "string",
-            "enum": [
-              "partenaire",
-              "associe"
-            ]
-          },
-          "acronyme": {
-            "type": "string"
-          },
-          "infos": {
-            "type": "string"
           }
         }
       },
-      "NewPartenaire": {
+      "NewRgpd": {
         "properties": {
-          "nom": {
+          "titre": {
             "type": "string"
           },
-          "pays": {
+          "alias": {
             "type": "string"
           },
-          "lien": {
+          "intro": {
             "type": "string"
           },
-          "coordonnees": {
-            "type": "string"
-          },
-          "contact": {
+          "contenu": {
             "type": "string"
           },
           "langue": {
-            "type": "string"
-          },
-          "gt": {
-            "type": "string"
-          },
-          "statut": {
-            "type": "string",
-            "enum": [
-              "partenaire",
-              "associe"
-            ]
-          },
-          "acronyme": {
-            "type": "string"
-          },
-          "infos": {
             "type": "string"
           }
         }
@@ -663,7 +575,7 @@
   },
   "tags": [
     {
-      "name": "Partenaire"
+      "name": "Rgpd"
     }
   ]
 }

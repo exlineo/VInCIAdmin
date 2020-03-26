@@ -1,0 +1,28 @@
+{
+  "info": {
+    "name": "mentionslegales"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "contenu": {
+      "type": "richtext"
+    },
+    "langue": {
+      "model": "langue"
+    }
+  },
+  "connection": "default",
+  "collectionName": "mentionslegales"
+}

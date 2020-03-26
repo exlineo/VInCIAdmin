@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/rgpds",
+      "handler": "rgpd.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rgpds/count",
+      "handler": "rgpd.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rgpds/:id",
+      "handler": "rgpd.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/rgpds",
+      "handler": "rgpd.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/rgpds/:id",
+      "handler": "rgpd.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/rgpds/:id",
+      "handler": "rgpd.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
