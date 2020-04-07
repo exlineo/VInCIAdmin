@@ -200,6 +200,14 @@ type createMentionslegalePayload {
   mentionslegale: Mentionslegales
 }
 
+input createMessageInput {
+  data: MessageInput
+}
+
+type createMessagePayload {
+  message: Message
+}
+
 input createMotInput {
   data: MotInput
 }
@@ -372,6 +380,14 @@ input deleteMentionslegaleInput {
 
 type deleteMentionslegalePayload {
   mentionslegale: Mentionslegales
+}
+
+input deleteMessageInput {
+  where: InputID
+}
+
+type deleteMessagePayload {
+  message: Message
 }
 
 input deleteMotInput {
@@ -568,6 +584,13 @@ input editMentionslegaleInput {
   langue: ID
 }
 
+input editMessageInput {
+  nom: String
+  sujet: String
+  email: String
+  message: String
+}
+
 input editMotInput {
   fr: String
   es: String
@@ -760,7 +783,24 @@ type Mentionslegales {
   updated_at: DateTime!
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mentionslegales | createMentionslegalePayload | updateMentionslegalePayload | deleteMentionslegalePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Rgpd | createRgpdPayload | updateRgpdPayload | deleteRgpdPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+type Message {
+  nom: String
+  sujet: String
+  email: String
+  message: String
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input MessageInput {
+  nom: String
+  sujet: String
+  email: String
+  message: String
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mentionslegales | createMentionslegalePayload | updateMentionslegalePayload | deleteMentionslegalePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Rgpd | createRgpdPayload | updateRgpdPayload | deleteRgpdPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mot {
   fr: String
@@ -812,6 +852,9 @@ type Mutation {
   createMentionslegale(input: createMentionslegaleInput): createMentionslegalePayload
   updateMentionslegale(input: updateMentionslegaleInput): updateMentionslegalePayload
   deleteMentionslegale(input: deleteMentionslegaleInput): deleteMentionslegalePayload
+  createMessage(input: createMessageInput): createMessagePayload
+  updateMessage(input: updateMessageInput): updateMessagePayload
+  deleteMessage(input: deleteMessageInput): deleteMessagePayload
   createMot(input: createMotInput): createMotPayload
   updateMot(input: updateMotInput): updateMotPayload
   deleteMot(input: deleteMotInput): deleteMotPayload
@@ -979,6 +1022,8 @@ type Query {
   langues(sort: String, limit: Int, start: Int, where: JSON): [Langue]
   mentionslegale(id: ID!): Mentionslegales
   mentionslegales(sort: String, limit: Int, start: Int, where: JSON): [Mentionslegales]
+  message(id: ID!): Message
+  messages(sort: String, limit: Int, start: Int, where: JSON): [Message]
   mot(id: ID!): Mot
   mots(sort: String, limit: Int, start: Int, where: JSON): [Mot]
   page(id: ID!): Page
@@ -1160,6 +1205,15 @@ input updateMentionslegaleInput {
 
 type updateMentionslegalePayload {
   mentionslegale: Mentionslegales
+}
+
+input updateMessageInput {
+  where: InputID
+  data: editMessageInput
+}
+
+type updateMessagePayload {
+  message: Message
 }
 
 input updateMotInput {

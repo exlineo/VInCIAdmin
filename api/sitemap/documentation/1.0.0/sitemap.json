@@ -575,7 +575,6 @@
           },
           "type": {
             "type": "string",
-            "default": "commun",
             "enum": [
               "commun",
               "divers",
@@ -687,7 +686,6 @@
           },
           "type": {
             "type": "string",
-            "default": "commun",
             "enum": [
               "commun",
               "divers",
