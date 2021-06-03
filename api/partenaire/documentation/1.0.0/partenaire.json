@@ -568,6 +568,9 @@
               },
               "langue": {
                 "type": "string"
+              },
+              "fichiers": {
+                "type": "string"
               }
             }
           },
@@ -602,6 +605,9 @@
                 "type": "string"
               },
               "langue": {
+                "type": "string"
+              },
+              "fichiers": {
                 "type": "string"
               }
             }

@@ -604,6 +604,25 @@
                 "type": "string"
               }
             }
+          },
+          "fichiers": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "titre": {
+                "type": "string"
+              },
+              "fichiers": {
+                "type": "string"
+              },
+              "lien": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -631,6 +650,9 @@
             "type": "string"
           },
           "langue": {
+            "type": "string"
+          },
+          "fichiers": {
             "type": "string"
           }
         }

@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/actions": {
+    "/fichiers": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Action"
+                    "$ref": "#/components/schemas/Fichier"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Action"
+          "Fichier"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Action"
+                  "$ref": "#/components/schemas/Fichier"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Action"
+          "Fichier"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAction"
+                "$ref": "#/components/schemas/NewFichier"
               }
             }
           }
         }
       }
     },
-    "/actions/count": {
+    "/fichiers/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Action"
+          "Fichier"
         ],
         "parameters": []
       }
     },
-    "/actions/{id}": {
+    "/fichiers/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Action"
+                  "$ref": "#/components/schemas/Fichier"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Action"
+          "Fichier"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Action"
+                  "$ref": "#/components/schemas/Fichier"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Action"
+          "Fichier"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAction"
+                "$ref": "#/components/schemas/NewFichier"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Action"
+          "Fichier"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Action": {
+      "Fichier": {
         "required": [
           "id"
         ],
@@ -525,138 +525,8 @@
           "titre": {
             "type": "string"
           },
-          "alias": {
-            "type": "string"
-          },
-          "intro": {
-            "type": "string"
-          },
-          "contenu": {
-            "type": "string"
-          },
-          "media": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "sha256": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              }
-            }
-          },
-          "partenaires": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nom": {
-                "type": "string"
-              },
-              "pays": {
-                "type": "string"
-              },
-              "lien": {
-                "type": "string"
-              },
-              "coordonnees": {
-                "type": "string"
-              },
-              "contact": {
-                "type": "string"
-              },
-              "langue": {
-                "type": "string"
-              },
-              "gt": {
-                "type": "string"
-              },
-              "statut": {
-                "type": "string"
-              },
-              "acronyme": {
-                "type": "string"
-              },
-              "infos": {
-                "type": "string"
-              }
-            }
-          },
-          "langue": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nom": {
-                "type": "string"
-              },
-              "code": {
-                "type": "string"
-              }
-            }
-          },
           "fichiers": {
             "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "titre": {
-                "type": "string"
-              },
-              "fichiers": {
-                "type": "string"
-              },
-              "lien": {
-                "type": "string"
-              }
-            }
-          },
-          "mediaplus": {
-            "required": [
               "id",
               "name",
               "hash",
@@ -700,30 +570,18 @@
                 "type": "string"
               }
             }
+          },
+          "lien": {
+            "type": "string"
           }
         }
       },
-      "NewAction": {
+      "NewFichier": {
         "properties": {
           "titre": {
             "type": "string"
           },
-          "alias": {
-            "type": "string"
-          },
-          "intro": {
-            "type": "string"
-          },
-          "contenu": {
-            "type": "string"
-          },
-          "partenaires": {
-            "type": "string"
-          },
-          "langue": {
-            "type": "string"
-          },
-          "fichiers": {
+          "lien": {
             "type": "string"
           }
         }
@@ -732,7 +590,7 @@
   },
   "tags": [
     {
-      "name": "Action"
+      "name": "Fichier"
     }
   ]
 }

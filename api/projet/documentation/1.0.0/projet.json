@@ -638,6 +638,25 @@
                 "type": "string"
               }
             }
+          },
+          "fichiers": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "titre": {
+                "type": "string"
+              },
+              "fichiers": {
+                "type": "string"
+              },
+              "lien": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -662,6 +681,9 @@
             "type": "string"
           },
           "partenaire": {
+            "type": "string"
+          },
+          "fichiers": {
             "type": "string"
           }
         }

@@ -1,4 +1,6 @@
 {
+  "connection": "default",
+  "collectionName": "projets",
   "info": {
     "name": "Projet"
   },
@@ -33,8 +35,9 @@
     },
     "partenaire": {
       "model": "partenaire"
+    },
+    "fichiers": {
+      "collection": "fichier"
     }
-  },
-  "connection": "default",
-  "collectionName": "projets"
+  }
 }

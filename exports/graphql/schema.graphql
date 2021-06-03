@@ -5,6 +5,7 @@ type Accueil {
   contenu: String
   media: UploadFile
   langue: Langue
+  mediasuite: UploadFile
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -17,6 +18,7 @@ input AccueilInput {
   contenu: String
   media: ID
   langue: ID
+  mediasuite: ID
 }
 
 type Action {
@@ -26,7 +28,9 @@ type Action {
   contenu: String
   media: UploadFile
   langue: Langue
+  mediaplus: UploadFile
   partenaires(sort: String, limit: Int, start: Int, where: JSON): [Partenaire]
+  fichiers(sort: String, limit: Int, start: Int, where: JSON): [Fichier]
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -40,6 +44,8 @@ input ActionInput {
   media: ID
   partenaires: [ID]
   langue: ID
+  fichiers: [ID]
+  mediaplus: ID
 }
 
 type Actualite {
@@ -50,6 +56,7 @@ type Actualite {
   lien: String
   contenu: String
   langue: Langue
+  fichiers(sort: String, limit: Int, start: Int, where: JSON): [Fichier]
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -63,6 +70,7 @@ input ActualiteInput {
   lien: String
   contenu: String
   langue: ID
+  fichiers: [ID]
 }
 
 type Categorie {
@@ -90,6 +98,7 @@ type Contact {
   gt: String
   logo: UploadFile
   langue: Langue
+  fichiers(sort: String, limit: Int, start: Int, where: JSON): [Fichier]
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -105,6 +114,7 @@ input ContactInput {
   gt: String
   logo: ID
   langue: ID
+  fichiers: [ID]
 }
 
 type Couleur {
@@ -174,6 +184,14 @@ input createDiverInput {
 
 type createDiverPayload {
   diver: Diver
+}
+
+input createFichierInput {
+  data: FichierInput
+}
+
+type createFichierPayload {
+  fichier: Fichier
 }
 
 input createGtInput {
@@ -358,6 +376,14 @@ type deleteDiverPayload {
   diver: Diver
 }
 
+input deleteFichierInput {
+  where: InputID
+}
+
+type deleteFichierPayload {
+  fichier: Fichier
+}
+
 input deleteGtInput {
   where: InputID
 }
@@ -498,6 +524,7 @@ input editAccueilInput {
   contenu: String
   media: ID
   langue: ID
+  mediasuite: ID
 }
 
 input editActionInput {
@@ -508,6 +535,8 @@ input editActionInput {
   media: ID
   partenaires: [ID]
   langue: ID
+  fichiers: [ID]
+  mediaplus: ID
 }
 
 input editActualiteInput {
@@ -518,6 +547,7 @@ input editActualiteInput {
   lien: String
   contenu: String
   langue: ID
+  fichiers: [ID]
 }
 
 input editCategorieInput {
@@ -536,6 +566,7 @@ input editContactInput {
   gt: String
   logo: ID
   langue: ID
+  fichiers: [ID]
 }
 
 input editCouleurInput {
@@ -550,6 +581,12 @@ input editDiverInput {
   contenu: String
   langue: ID
   alias: String
+}
+
+input editFichierInput {
+  titre: String
+  fichiers: ID
+  lien: String
 }
 
 input editFileInput {
@@ -569,6 +606,7 @@ input editGtInput {
   nom: String
   code: String
   langue: ID
+  fichiers: [ID]
 }
 
 input editLangueInput {
@@ -607,6 +645,8 @@ input editPageInput {
   media: ID
   langue: ID
   ordre: Int
+  fichiers: [ID]
+  media2: ID
 }
 
 input editPartenaireInput {
@@ -631,6 +671,7 @@ input editProjetInput {
   ordre: Int
   langue: ID
   partenaire: ID
+  fichiers: [ID]
 }
 
 input editPublicationInput {
@@ -640,6 +681,7 @@ input editPublicationInput {
   lien: String
   document: ID
   langue: ID
+  fichiers: [ID]
 }
 
 input editRgpdInput {
@@ -711,6 +753,21 @@ enum ENUM_SITEMAP_TYPE {
   vincis
 }
 
+type Fichier {
+  titre: String
+  fichiers: UploadFile
+  lien: String
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input FichierInput {
+  titre: String
+  fichiers: ID
+  lien: String
+}
+
 input FileInput {
   name: String!
   hash: String!
@@ -728,6 +785,7 @@ type Gt {
   nom: String
   code: String
   langue: Langue
+  fichiers(sort: String, limit: Int, start: Int, where: JSON): [Fichier]
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -737,6 +795,7 @@ input GtInput {
   nom: String
   code: String
   langue: ID
+  fichiers: [ID]
 }
 
 input InputID {
@@ -800,7 +859,7 @@ input MessageInput {
   message: String
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mentionslegales | createMentionslegalePayload | updateMentionslegalePayload | deleteMentionslegalePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Rgpd | createRgpdPayload | updateRgpdPayload | deleteRgpdPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Fichier | createFichierPayload | updateFichierPayload | deleteFichierPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mentionslegales | createMentionslegalePayload | updateMentionslegalePayload | deleteMentionslegalePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Rgpd | createRgpdPayload | updateRgpdPayload | deleteRgpdPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mot {
   fr: String
@@ -843,6 +902,9 @@ type Mutation {
   createDiver(input: createDiverInput): createDiverPayload
   updateDiver(input: updateDiverInput): updateDiverPayload
   deleteDiver(input: deleteDiverInput): deleteDiverPayload
+  createFichier(input: createFichierInput): createFichierPayload
+  updateFichier(input: updateFichierInput): updateFichierPayload
+  deleteFichier(input: deleteFichierInput): deleteFichierPayload
   createGt(input: createGtInput): createGtPayload
   updateGt(input: updateGtInput): updateGtPayload
   deleteGt(input: deleteGtInput): deleteGtPayload
@@ -911,6 +973,8 @@ type Page {
   media: UploadFile
   langue: Langue
   ordre: Int
+  media2: UploadFile
+  fichiers(sort: String, limit: Int, start: Int, where: JSON): [Fichier]
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -924,6 +988,8 @@ input PageInput {
   media: ID
   langue: ID
   ordre: Int
+  fichiers: [ID]
+  media2: ID
 }
 
 type Partenaire {
@@ -964,6 +1030,7 @@ type Projet {
   ordre: Int
   langue: Langue
   partenaire: Partenaire
+  fichiers(sort: String, limit: Int, start: Int, where: JSON): [Fichier]
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -978,6 +1045,7 @@ input ProjetInput {
   ordre: Int
   langue: ID
   partenaire: ID
+  fichiers: [ID]
 }
 
 type Publication {
@@ -987,6 +1055,7 @@ type Publication {
   lien: String
   document: UploadFile
   langue: Langue
+  fichiers(sort: String, limit: Int, start: Int, where: JSON): [Fichier]
   id: ID!
   created_at: DateTime!
   updated_at: DateTime!
@@ -999,6 +1068,7 @@ input PublicationInput {
   lien: String
   document: ID
   langue: ID
+  fichiers: [ID]
 }
 
 type Query {
@@ -1016,6 +1086,8 @@ type Query {
   couleurs(sort: String, limit: Int, start: Int, where: JSON): [Couleur]
   diver(id: ID!): Diver
   divers(sort: String, limit: Int, start: Int, where: JSON): [Diver]
+  fichier(id: ID!): Fichier
+  fichiers(sort: String, limit: Int, start: Int, where: JSON): [Fichier]
   gt(id: ID!): Gt
   gts(sort: String, limit: Int, start: Int, where: JSON): [Gt]
   langue(id: ID!): Langue
@@ -1178,6 +1250,15 @@ input updateDiverInput {
 
 type updateDiverPayload {
   diver: Diver
+}
+
+input updateFichierInput {
+  where: InputID
+  data: editFichierInput
+}
+
+type updateFichierPayload {
+  fichier: Fichier
 }
 
 input updateGtInput {

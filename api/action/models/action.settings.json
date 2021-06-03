@@ -32,6 +32,15 @@
     },
     "langue": {
       "model": "langue"
+    },
+    "fichiers": {
+      "collection": "fichier"
+    },
+    "mediaplus": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }

@@ -32,6 +32,15 @@
     },
     "ordre": {
       "type": "integer"
+    },
+    "fichiers": {
+      "collection": "fichier"
+    },
+    "media2": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     }
   }
 }
