@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "Resultat"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Alias": {
+      "type": "string",
+      "unique": true
+    },
+    "Intro": {
+      "type": "text"
+    },
+    "Contenu": {
+      "type": "richtext"
+    },
+    "Media": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "Mediaplus": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  },
+  "connection": "default",
+  "collectionName": "resultats"
+}
