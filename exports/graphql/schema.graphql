@@ -266,6 +266,14 @@ type createPublicationPayload {
   publication: Publication
 }
 
+input createResultatInput {
+  data: ResultatInput
+}
+
+type createResultatPayload {
+  resultat: Resultat
+}
+
 input createRgpdInput {
   data: RgpdInput
 }
@@ -454,6 +462,14 @@ input deletePublicationInput {
 
 type deletePublicationPayload {
   publication: Publication
+}
+
+input deleteResultatInput {
+  where: InputID
+}
+
+type deleteResultatPayload {
+  resultat: Resultat
 }
 
 input deleteRgpdInput {
@@ -684,6 +700,17 @@ input editPublicationInput {
   fichiers: [ID]
 }
 
+input editResultatInput {
+  Titre: String
+  Alias: String
+  Intro: String
+  Contenu: String
+  Media: ID
+  Mediaplus: ID
+  langue: ID
+  ordre: Int
+}
+
 input editRgpdInput {
   titre: String
   alias: String
@@ -859,7 +886,7 @@ input MessageInput {
   message: String
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Fichier | createFichierPayload | updateFichierPayload | deleteFichierPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mentionslegales | createMentionslegalePayload | updateMentionslegalePayload | deleteMentionslegalePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Rgpd | createRgpdPayload | updateRgpdPayload | deleteRgpdPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | Accueil | createAccueilPayload | updateAccueilPayload | deleteAccueilPayload | Action | createActionPayload | updateActionPayload | deleteActionPayload | Actualite | createActualitePayload | updateActualitePayload | deleteActualitePayload | Categorie | createCategoriePayload | updateCategoriePayload | deleteCategoriePayload | Contact | createContactPayload | updateContactPayload | deleteContactPayload | Couleur | createCouleurPayload | updateCouleurPayload | deleteCouleurPayload | Diver | createDiverPayload | updateDiverPayload | deleteDiverPayload | Fichier | createFichierPayload | updateFichierPayload | deleteFichierPayload | Gt | createGtPayload | updateGtPayload | deleteGtPayload | Langue | createLanguePayload | updateLanguePayload | deleteLanguePayload | Mentionslegales | createMentionslegalePayload | updateMentionslegalePayload | deleteMentionslegalePayload | Message | createMessagePayload | updateMessagePayload | deleteMessagePayload | Mot | createMotPayload | updateMotPayload | deleteMotPayload | Page | createPagePayload | updatePagePayload | deletePagePayload | Partenaire | createPartenairePayload | updatePartenairePayload | deletePartenairePayload | Projet | createProjetPayload | updateProjetPayload | deleteProjetPayload | Publication | createPublicationPayload | updatePublicationPayload | deletePublicationPayload | Resultat | createResultatPayload | updateResultatPayload | deleteResultatPayload | Rgpd | createRgpdPayload | updateRgpdPayload | deleteRgpdPayload | Sitemap | createSitemapPayload | updateSitemapPayload | deleteSitemapPayload | Vinci | createVinciPayload | updateVinciPayload | deleteVinciPayload | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mot {
   fr: String
@@ -932,6 +959,9 @@ type Mutation {
   createPublication(input: createPublicationInput): createPublicationPayload
   updatePublication(input: updatePublicationInput): updatePublicationPayload
   deletePublication(input: deletePublicationInput): deletePublicationPayload
+  createResultat(input: createResultatInput): createResultatPayload
+  updateResultat(input: updateResultatInput): updateResultatPayload
+  deleteResultat(input: deleteResultatInput): deleteResultatPayload
   createRgpd(input: createRgpdInput): createRgpdPayload
   updateRgpd(input: updateRgpdInput): updateRgpdPayload
   deleteRgpd(input: deleteRgpdInput): deleteRgpdPayload
@@ -1106,6 +1136,8 @@ type Query {
   projets(sort: String, limit: Int, start: Int, where: JSON): [Projet]
   publication(id: ID!): Publication
   publications(sort: String, limit: Int, start: Int, where: JSON): [Publication]
+  resultat(id: ID!): Resultat
+  resultats(sort: String, limit: Int, start: Int, where: JSON): [Resultat]
   rgpd(id: ID!): Rgpd
   rgpds(sort: String, limit: Int, start: Int, where: JSON): [Rgpd]
   sitemap(id: ID!): Sitemap
@@ -1122,6 +1154,31 @@ type Query {
   user(id: ID!): UsersPermissionsUser
   users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
   me: UsersPermissionsMe
+}
+
+type Resultat {
+  Titre: String!
+  Alias: String
+  Intro: String
+  Contenu: String
+  Media: UploadFile
+  Mediaplus: UploadFile
+  langue: Langue
+  ordre: Int
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+input ResultatInput {
+  Titre: String!
+  Alias: String
+  Intro: String
+  Contenu: String
+  Media: ID
+  Mediaplus: ID
+  langue: ID
+  ordre: Int
 }
 
 type Rgpd {
@@ -1340,6 +1397,15 @@ input updatePublicationInput {
 
 type updatePublicationPayload {
   publication: Publication
+}
+
+input updateResultatInput {
+  where: InputID
+  data: editResultatInput
+}
+
+type updateResultatPayload {
+  resultat: Resultat
 }
 
 input updateRgpdInput {

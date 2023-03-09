@@ -1,4 +1,6 @@
 {
+  "connection": "default",
+  "collectionName": "resultats",
   "info": {
     "name": "Resultat"
   },
@@ -32,8 +34,12 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "langue": {
+      "model": "langue"
+    },
+    "ordre": {
+      "type": "integer"
     }
-  },
-  "connection": "default",
-  "collectionName": "resultats"
+  }
 }
